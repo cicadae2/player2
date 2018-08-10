@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_account"
+        android:title="    昵称"/>
+    <item
+        android:id="@+id/menu_name"
+
+        android:title="    性别"/>
+    <item
+        android:id="@+id/menu_back"
+        android:actionLayout="@layout/head"
+        android:title="    退出播放器"/>
+</menu>

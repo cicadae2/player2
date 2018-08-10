@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+
+
+def keyStorePath = 'config/player.jks'
+def storePwd = '123456'
+def keyAlias_string = 'player'
+def keyPwd = '123456'
+
+android {
+    signingConfigs {
+        release {
+            keyAlias keyAlias_string
+            storeFile file(keyStorePath)
+            storePassword storePwd
+            keyPassword keyPwd
+        }
+        debug {
+            keyAlias keyAlias_string
+            storeFile file(keyStorePath)
+            storePassword storePwd
+            keyPassword keyPwd
+        }
+    }
+
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+    defaultConfig {
+        applicationId "com.hjy.player"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            zipAlignEnabled true //Zipalign优化优化
+            shrinkResources true // 移除无用的resource文件
+            debuggable false
+            jniDebuggable false
+            renderscriptDebuggable false
+            minifyEnabled true //混淆
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            zipAlignEnabled false //Zipalign优化
+            shrinkResources false // 移除无用的resource文件
+            debuggable true
+            jniDebuggable true
+            renderscriptDebuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
+//    implementation 'com.android.support:appcompat-v7:27.1.1'
+//    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+//    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:design:26.+'
+    compile 'com.github.bumptech.glide:glide:4.3.1'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'jp.wasabeef:glide-transformations:2.0.2'
+//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+}
+

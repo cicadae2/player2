@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="vertical" >
+
+    <!-- 这里的linearLayout加android:background=""这个属性要谨慎，如果加了后，popwindow是不能半透明了的 -->
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/tvMale"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/tv_bg_selector"
+        android:textColor="#000000"
+        android:text="男" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:textColor="#696969" />
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/tvFemale"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="#000000"
+        android:background="@drawable/tv_bg_selector"
+        android:text="女" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:textColor="#696969" />
+    <TextView
+        android:gravity="center"
+        android:id="@+id/tvCancel"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/tv_bg_selector"
+        android:textColor="#000000"
+        android:text="取消"/>
+
+</LinearLayout>
